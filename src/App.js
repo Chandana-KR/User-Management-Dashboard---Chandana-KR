@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Header from './components/Header'
-import Home from './components/Home'
+import UserList from './components/UserList'
 import "./App.css"
 
 
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <>
         <Header />
-        <Home />
+        <UserList />
        </>
     )
   }

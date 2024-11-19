@@ -1,78 +1,140 @@
-.user-list-item {
+.home-container {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.user-list-title{
+    font-family: "Roboto";
+    color: #101010;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.user-add-button{
+    color: #ffffff;
+    font-family: "Roboto";
+    font-weight: 500;
+    cursor: pointer;
+    border-width: 0px;
+    outline: none;
+    background-color: green;
+    align-self: flex-end;
+    padding: 10px;
+    border-radius: 6px;
+    width: 80px;
+
+}
+
+.user-list-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+.user-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.column-headers {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 15px;
+    font-weight: bold;
+    background-color: #f1f1f1;
+    padding-left: 20px;
+}
+
+.column-header {
+    flex: 1;
+    text-align: center;
+    margin-right: 100px;
+}
+li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+li:hover {
+    background-color: #f9f9f9;
+}
+
+
+@media screen and (min-width: 768px) {
+    .user-list-title {
+        font-size: 42px;
+    }
+}
+
+.user-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+.column-headers {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    padding: 10px;
     border-bottom: 1px solid #ddd;
 }
   
-.user-item-column {
+.column-header {
+    flex: 1;
+    text-align: center;
+ }
+  
+.user-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+.column-headers {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+  }
+  
+.column-header {
     flex: 1;
     text-align: center;
     padding: 5px;
-}
-  
-  
-.user-item-column:first-child {
-    flex: 0.5;
-}
-  
-.user-item-column:nth-child(2),
-.user-item-column:nth-child(3) {
-    margin-left: 65px;
-    flex: 1; 
-}
-  
-.user-item-column:nth-child(4),
-.user-item-column:nth-child(5) {
-    flex: 1.5; 
-}
-.user-item-column:nth-child(5){
-    margin-right: 60px;
-   
-}
-  
-.action-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-}
-  
-  
-.edit-button, .delete-button {
-    padding: 8px 12px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
+    width: 40px;
+  }
+.retry-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #e53935;
     border: none;
-    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    align-self: flex-start; 
 }
-  
-.edit-button {
-    background-color: #4CAF50;
-    color: white;
-}
-  
-.delete-button {
-    background-color: #f44336;
-    color: white;
-}
-  
 
-.edit-button:hover {
-    background-color: #45a049;
+.user-add-button{
+    color: #ffffff;
+    font-family: "Roboto";
+    font-weight: 500;
+    cursor: pointer;
+    border-width: 0px;
+    outline: none;
+    background-color: green;
+    align-self: flex-end;
+    padding: 10px;
+    border-radius: 6px;
+    width: 80px;
+    margin-bottom: 15px;
 }
-  
-.delete-button:hover {
-   background-color: #e53935;
-}
- 
-.user-list-item:hover {
-    background-color: #f9f9f9;
-}
-  
-.user-item-column:hover {
-    font-weight: bold;
-    color: #007BFF;
-}
-  
