@@ -161,7 +161,7 @@ class UserList extends Component {
         const { Users } = this.state;
         return (
             <>
-                <h1 className='user-list-title'>Users</h1>
+                <h1 className='user-list-title'>User Details</h1>
                 <button className="user-add-button" onClick={this.onClickAdd}>Add User</button>
                 <ul className='user-list'>
                     <li className='column-headers'>
