@@ -1,0 +1,75 @@
+.user-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .user-item-column {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  /* Adjusting flex for column widths */
+  .user-item-column:first-child {
+    flex: 0.5; /* ID column is narrower */
+  }
+  
+  .user-item-column:nth-child(2),
+  .user-item-column:nth-child(3) {
+    flex: 1.5; /* First and last name take more space */
+  }
+  
+  .user-item-column:nth-child(4),
+  .user-item-column:nth-child(5) {
+    flex: 2; /* Email and Department take more space */
+  }
+  
+  /* Action buttons container */
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  
+  /* Styling for Edit and Delete buttons */
+  .edit-button, .delete-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  /* Hover effects for buttons */
+  .edit-button:hover {
+    background-color: #45a049;
+  }
+  
+  .delete-button:hover {
+    background-color: #e53935;
+  }
+  
+  /* Hover effect for list items */
+  .user-list-item:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .user-item-column:hover {
+    font-weight: bold;
+    color: #007BFF;
+  }
+  
