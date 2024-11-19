@@ -73,27 +73,22 @@ class Home extends Component {
       };
 
     handleDeleteUser = async (id) => {
-        // Send DELETE request to the API
         const Api_url = `https://jsonplaceholder.typicode.com/users/${id}`;
-        
         try {
             const response = await fetch(Api_url, {
                 method: 'DELETE',
             });
 
             if (response.ok) {
-                // If successful, filter the user out of the list
                 this.setState((prevState) => {
                     const updatedUsers = prevState.Users.filter(user => user.id !== id);
                     return { Users: updatedUsers };
                 });
+                alert("Are you sure you want to delete this user? This action cannot be undone.")
             } else {
-                // Handle failed delete request if necessary (show an error)
                 alert('Failed to delete user');
             }
         } catch (error) {
-            // Handle network or other errors
-            console.error('Error deleting user:', error);
             alert('Error deleting user');
         }
     }
@@ -108,20 +103,19 @@ class Home extends Component {
         })))
     }
 
-     getNextUserId = () => {
+    getNextUserId = () => {
         const {Users} = this.state 
         if(Users.length === 0) return 1 
 
         const maxNum = Math.max(...Users.map(user => user.id))
-        return maxNum
-     }
+        return maxNum+1
+    }
 
     handleFormSubmit = async event => {
         event.preventDefault()
         const { formData, isEditing, editedUser, Users } = this.state;
 
         if (isEditing) {
-            // Update existing user
             const updatedUser = {
                 id: editedUser,
                 name: `${formData.firstName} ${formData.lastName}`,
@@ -130,7 +124,6 @@ class Home extends Component {
             };
     
             const Api_url = `https://jsonplaceholder.typicode.com/users/${editedUser}`;
-    
             const options = {
                 method: "PUT",
                 headers: {
@@ -155,26 +148,29 @@ class Home extends Component {
                             formData: { firstName: "", lastName: "", email: "", department: "" },
                         };
                     });
-                } else {
+                } 
+                else {
                     alert("Failed to update user");
                 }
-            } catch (error) {
+            } 
+            catch (error) {
                 console.error('Error updating user:', error);
                 alert('Error updating user');
             }
-        } else {
-
-
+        } 
+        else {
         const nextUserId = this.getNextUserId()
 
         const newUser= {
-            id : nextUserId +1,
+            id : nextUserId,
             name: `${formData.firstName} ${formData.lastName}`,
             email: formData.email,
             company : {
                 bs: formData.department
             },
         }
+
+        
 
         const Api_url = 'https://jsonplaceholder.typicode.com/users';
         const options = {
@@ -199,8 +195,11 @@ class Home extends Component {
                     department : "",
                  }
                 }))
+                alert("User added Successfully!")
             }
-        } catch {
+        } 
+        catch {
+            alert("Unable to add new user")
 
         }
     }
@@ -253,13 +252,12 @@ class Home extends Component {
 
     render() {
         const {formData, isFormVisible} = this.state
+        console.log(formData)
         return (
             <div className='home-container'>
                 <h1 className='user-list-title'>Users</h1>
 
-                {
-                isFormVisible 
-                ? 
+                { isFormVisible ? 
                  (<form className='user-form' onSubmit={this.handleFormSubmit}>
                     <div className="user-form-field">
                         <label htmlFor='firstName' className='user-form-label'>First Name</label>
@@ -302,15 +300,9 @@ class Home extends Component {
                         />
                     </div>
                     <button type="submit" className='user-form-save-button' >Save</button>
-                </form>)
-                :
-                (<button type="button" className='user-add-button' onClick={this.onClickAdd}>Add</button>) 
-                
+                </form>) :
+                (<button type="button" className='user-add-button' onClick={this.onClickAdd}>Add</button>)   
                 }
-                
-
-                
-
                 <div className='user-list-container'>  
                     {this.renderBasedOnStatus() }
                 </div>
