@@ -236,18 +236,23 @@ class Home extends Component {
     renderUserList = () => {
         const { Users} = this.state
         return (
-            <ul className='user-list'>
-                <li className='column-headers'>
-                    {columnHeaders.map((header, index) => (
-                        <span key={index} className="column-header">{header}</span>
-                    ))}
-                </li>
+            <>
+                <ul className='user-list'>
+                    <li className='column-headers'>
+                        {columnHeaders.map((header, index) => (
+                            <span key={index} className="column-header">{header}</span>
+                        ))}
+                    </li>
+                </ul>
+                <ul className='user-list'>
 
-                {Users.map(eachUser => (
-                    <UserList userItem={eachUser} key={eachUser.id} onEdit={this.onEdit} onDelete={this.handleDeleteUser}  />
-                ))}
-            </ul>
+                    {Users.map(eachUser => (
+                        <UserList userItem={eachUser} key={eachUser.id} onEdit={this.onEdit} onDelete={this.handleDeleteUser}  />
+                    ))}
+                </ul>
+            </>
         )
+
     }
 
     render() {

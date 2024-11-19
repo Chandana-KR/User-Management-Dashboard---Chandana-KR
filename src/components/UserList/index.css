@@ -19,12 +19,17 @@
   
 .user-item-column:nth-child(2),
 .user-item-column:nth-child(3) {
+    margin-left: 65px;
     flex: 1; 
 }
   
 .user-item-column:nth-child(4),
 .user-item-column:nth-child(5) {
     flex: 1.5; 
+}
+.user-item-column:nth-child(5){
+    margin-right: 60px;
+   
 }
   
 .action-buttons {
